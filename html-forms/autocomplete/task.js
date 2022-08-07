@@ -81,12 +81,19 @@ class Autocomplete {
         value: 'Содержимое атрибута value'
       }
     */
-    return [
-      {
-        text: 'Чубакка',
-        value: '1'
+
+      const option = document.querySelectorAll("option");
+      let optionMassiv = [];
+      for (let i = 0; i < option.length; i++) {
+        if (option[i].textContent.includes(text)) {
+          optionMassiv.push({
+          value: option[i].value,
+          text: option[i].textContent
+          })
+        }
       }
-    ];
+
+    return optionMassiv;
   }
 }
 
