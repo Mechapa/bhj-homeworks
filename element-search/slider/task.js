@@ -1,7 +1,6 @@
 const buttonNext = document.querySelector(".slider__arrow_next");
 const buttonPrev = document.querySelector(".slider__arrow_prev");
 const sliders = Array.from(document.querySelectorAll(".slider__item"));
-let index;
 
 buttonNext.onclick = function () {
   let index = sliders.findIndex(item => item.classList.contains('slider__item_active'));
