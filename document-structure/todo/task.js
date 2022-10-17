@@ -3,11 +3,12 @@ const addButton = document.querySelector(".tasks__add");
 const tasksList = document.querySelector(".tasks__list");
 
 function addTask() {
-  if (input.value) {
+  let inputText = input.value.trim();
+  if (inputText) {
     tasksList.insertAdjacentHTML('beforeEnd',
       `<div class="task">
         <div class="task__title">
-          ${input.value}
+          ${inputText }
         </div>
       <a href="#" class="task__remove">&times;</a>
       </div>`)
@@ -20,19 +21,12 @@ addButton.addEventListener("click", (e) => {
   addTask();
 })
 
-input.addEventListener("keydown", (e) => {
-  if (e.key === Enter) {
-    addTask();
-  }
-})
-
 tasksList.addEventListener("click", (e) => {
   const removeButton = document.querySelectorAll(".task__remove");
-  removeButton.forEach((button) => {
-    if (button = e.target) {
-      button.parentElement.remove();
+    if (e.target.className === "task__remove") {
+      console.log("loh");
+      e.target.parentElement.remove();
     }
   })
-})
  
   
